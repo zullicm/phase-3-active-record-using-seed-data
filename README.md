@@ -53,26 +53,16 @@ end
 ## Why Do We Need Seed Data?
 
 With Active Record, we've seen how simple it is to add data to a database by
-using built-in methods that will write SQL code for us. For instance, to create
-a new record in the `games` table, you can open up a console session with
-`bundle exec rake console` and use the `.create` method:
+using built-in methods that will write SQL code for us. We _could_ create a new
+record in the `games` table by opening up a console session and using the
+`.create` method. The command would look something like this:
 
 ```rb
 Game.create(title: "Breath of the Wild", platform: "Switch", genre: "Action-adventure", price: 60)
 ```
 
-Awesome! Our database now has some data in it. We can create a few more games:
-
-```rb
-Game.create(title: "Final Fantasy VII", platform: "Playstation", genre: "RPG", price: 60)
-Game.create(title: "Mario Kart", platform: "Switch", genre: "Racing", price: 60)
-```
-
-Since these records are saved in the database rather than in Ruby's memory, we
-know that even after we exit the console, we'll still be able to retrieve this
-data.
-
-But how can we share this data with other developers who are working on the same
+Running this command would create the new record and save it to the database,
+but how can we share this data with other developers who are working on the same
 application? How could we recover this data if our development database was
 deleted? We could include the database in version control, but this is generally
 considered bad practice: since our database might get quite large over time,
